@@ -1,10 +1,6 @@
-.main{
-	/*background-color: #333;*/
-	width: 750px;
-	margin:auto;
-	border: 3px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 5px 10px 10px #888;
+.main {
+   width: 750px;
+   margin: auto;
 }
 
 .player {
