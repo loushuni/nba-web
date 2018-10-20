@@ -1,36 +1,34 @@
 import React from 'react';
 import { AutoComplete } from 'antd';
 
-
 function onSelect(value) {
-  console.log('onSelect', value);
+   console.log('onSelect', value);
 }
 
 export class SearchBar extends React.Component {
-  state = {
-    dataSource: [],
-  }
+   state = {
+       dataSource: [],
+   }
+    handleSearch = (value) => {
+       this.setState({
+           dataSource: !value ? [] : [
+               value,
+               value + value,
+               value + value + value,
+           ],
+       });
+   }
 
-  handleSearch = (value) => {
-    this.setState({
-      dataSource: !value ? [] : [
-        value,
-        value + value,
-        value + value + value,
-      ],
-    });
-  }
-
-  render() {
-    const { dataSource } = this.state;
-    return (
-      <AutoComplete
-        dataSource={dataSource}
-        style={{ width: 200 }}
-        onSelect={onSelect}
-        onSearch={this.handleSearch}
-        placeholder="input here"
-      />
-    );
-  }
+   render() {
+       const { dataSource } = this.state;
+       return (
+           <AutoComplete
+               dataSource={dataSource}
+               style={{ width: 200 }}
+               onSelect={onSelect}
+               onSearch={this.handleSearch}
+               placeholder="input here"
+           />
+       );
+   }
 }
